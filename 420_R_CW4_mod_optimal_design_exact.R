@@ -6,13 +6,10 @@
 ######## if X_(k-t+1)-X0>=c, select all populations for which  Xi>=X_(k-t+1)-d
 ######## else, reject all populations for which X_i<X0+c
 #################################################################################################
-## Original version: 02NOV2022
-library(dplyr)
-source(file="~/Dropbox/AAAA Paper/Codes/Ch4_Subset Selection Approach/419_R_CW4_mod_PCS_ES_exact.R")
-source(file="~/Dropbox/AAAA Paper/Codes/Ch1_One stage FSS/107_OneStage_FSS_search value.R")
-source(file="~/Dropbox/AAAA Paper/Codes/Ch4_Subset Selection Approach/418_R_CW4_mod_simulation.R")
 
-setwd("~/Dropbox/AAAA Paper/Codes/Ch4_Subset Selection Approach/Outputs/420_R_CW4_mod_optimal_design_exact")
+library(dplyr)
+source(file="~/Dropbox/419_R_CW4_mod_PCS_ES_exact.R")
+source(file="~/Dropbox/107_OneStage_FSS_search value.R")
 
 RCW4.fvalue <- function(k,t,p0star,p1star,p0, delta1=0, delta2=0.2,
                         c_L,c_U,c_step=1,d_L,d_U,d_step=1,n_L,n_U,n_step=1){
@@ -310,26 +307,6 @@ out<-out %>% arrange(ES1)
 tmp<-rbind(tmp,out[1,])
 write.csv(tmp,file="R_CW4_mod_optimal_designs.csv")
 
-#######################################################################################
-#### For optimal designs found above, calculate E_1(s) at slippage configuration
-#### Slippage conf: p1=...=p_{k-t}=p0+delta1
-####                p_{k-t+1}=...=p_k=p0+delta2
-#######################################################################################
-opt.dsgn<-read.csv(file="R_CW4_mod_optimal_designs.csv")[,-1]
-tmp<-NULL
-tmp<-read.csv(file="E1S_SPC.csv")[,-1]
-for (i in 29:nrow(opt.dsgn)){ 
-  param<-opt.dsgn[i,]
-  if (param$k<5){ES1<-ES.1.exact(k=param$k,t=param$t,n=param$n,c=param$c,d=param$d,p0=param$p0,delta1=0,delta2=0.2)$ES1}
-  else {# k>=5 cannot be calculated in reasonable time, so it is calcualted via simulation
-    ES1<-subset.sim.onestage.calc(nsim=100000,k=param$k,t=param$t,g=param$t,n=param$n,c=param$c,d=param$d,p0=param$p0,
-                                  p_lower=param$p0,p_higher=param$p0+0.2)$ES.1
-    }
-  out<-data.frame(k=param$k,t=param$t,n=param$n,c=param$c,d=param$d,p0=param$p0,delta1=0,delta2=0.2,ES1)
-  print(out)
-  tmp<-rbind(tmp,out)
-}
-write.csv(tmp,file="E1S_SPC.csv")
 
 ###################################################################
 #### Example Sec 5.6
