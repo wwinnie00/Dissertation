@@ -1,14 +1,11 @@
-###### Exact calculation of P(CS) & E(N) for fixed-sample-size TSE two-stage allowing less than t Version A #######
+###### Exact calculation of P(CS) & E(N) for fixed-sample-size TSE two-stage allowing less than t #######
 ###### Procedure:
 ######    Stage1. If X_{[k-t+1],1} >= X_{01}+c1, select the t best populations and use randomization to break a tie, then continue to S2.
 ######            Otherwise, select only populations with X_{i1}>=X_{01}+c1 and continue to S2.
 ######            If no population has X_{i1}>=X_{01}+c1, select none and terminate the experiment.
 ######    Stage2. Select only populations with X_{i1}+X_{i2}>=X_{01}+X_{02}+c2.
 
-####################################### Version History ##########################
-######  Original - 04OCT2022
-source("/Users/mingyuewang/Dropbox/AAAA Paper/Codes/Ch3_two stage FSS/310_TwoStage_PCS_EN_exact.R")
-setwd("~/Dropbox/AAAA Paper/Codes/Ch3_two stage FSS/Outputs/311_modified two stage designs")
+source("/Users/Dropbox/310_TwoStage_PCS_EN_exact.R")
 
 library(dplyr)
 
