@@ -1,20 +1,9 @@
 #########################################################################################
 ## Curtailed version of modified one-stage design, allows <t populations to be selected
 ## Vector-at-a-time sampling
-## Stopping rule applied:
-### 1. stop the procudure if at least t exp. pop. will be at least X_0+c and at least as good as all other exp. pop. 
-### 2. stop the procedure if no exp. pop. can possibly be at least X_0+c.
-### 3. early termination on bad treatment: stop any treatment that cannot possibly be as good as the current t best treatments
-### 4. stop the procedure if g=t-1 exp. pop. will be at least X_0+c and the other k-g pop won't reach X_0+c
-### 5. stop the control if there exist t treatments better than the control 
-###     (should not control when there are only <t trt better than y0+c+n-M0, because the remaining populations within the t best still need to be compared with control) )
-## Stopping rule NOT applied yet:
-### 6. stop a single treatment that is superior to all other treatments
-####################### Original version: 2022/07/10 ####################################
-## Update(2022/08/03): modified function RCW2_sim. Added stopping rule to early terminate control.
 
-source(file="~/Dropbox/AAAA Paper/Codes/Ch1_One stage FSS/107_OneStage_FSS_search value.R")
-setwd("~/Dropbox/AAAA Paper/Codes/Ch2_one stage curtailment/Outputs/204_OneStage_Curtailment_simulation")
+
+source(file="~/Dropbox/107_OneStage_FSS_search value.R")
 
 # Calculate power, size and EN
 RCW2_pcs_EN_sim <- function(k,t,nsim, n, c, p0, delta1, delta2,g){
