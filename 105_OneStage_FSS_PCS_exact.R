@@ -2,7 +2,6 @@
 ######## R_CW1: modified for selecting less than t
 ######## g: number of populations p_i>=p_0+delta_2
 ###################################################################
-################## Original version: 2022/07/29 ###################
 
 # P(CS_{0,g}) when g<t, any k,t
 RCW1.pcs.seq <- function(k,t,n,c,p0,delta1,delta2){
