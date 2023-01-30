@@ -3,10 +3,8 @@
 ### If X_{k-t+1} >= X_0+c, select the t largest X_i
 ### Otherwise, select only X_i >= X_0+c
 ##########################################################
-### Original version: 2022/07/29
 
-source(file="~/Dropbox/AAAA Paper/Codes/Ch1_One stage FSS/105_OneStage_FSS_PCS_exact.R")
-setwd("~/Dropbox/AAAA Paper/Codes/Ch1_One stage FSS/Outputs/107_one stage FSS optimal designs_new")
+source(file="~/Dropbox/105_OneStage_FSS_PCS_exact.R")
 
 # Search values, P(CS0) and P(CS1) requirements
 
