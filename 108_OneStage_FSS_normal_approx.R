@@ -4,15 +4,9 @@
 ### If Z_{k-t+1} >= Z_0+sqrt(2)*c, select the t largest Z_i
 ### Otherwise, select only Z_i >= Z_0+c*sqrt(1/(2n))
 ###################################################################
-############### Original version: 2022/07/29 ######################
-############### Update 2023/1/10: 
-###############     changed Z_i=arcsin(sqrt(X_i/n)) to sqrt(4n)arcsin(sqrt(X_i/n)).  
-###############     changed procedure inequality from Z_{k-t+1} >= Z_0+c*sqrt(1/(2n)) to Z_{k-t+1} >= Z_0+c*sqrt(2).
-###############     no change to pcs functions.
 
-source(file="~/Dropbox/AAAA Paper/Codes/Ch1_One stage FSS/105_OneStage_FSS_PCS_exact.R")
-source(file="~/Dropbox/AAAA Paper/Codes/Ch1_One stage FSS/107_OneStage_FSS_search value.R")
-setwd("~/Dropbox/AAAA Paper/Codes/Ch1_One stage FSS/Outputs/108_OneStage_FSS_normal_approx")
+source(file="~/Dropbox/105_OneStage_FSS_PCS_exact.R")
+source(file="~/Dropbox/107_OneStage_FSS_search value.R")
 
 ### P(CS0), any k and t 
 pcs0.norm <- function(p0,n,k,c,delta1){
