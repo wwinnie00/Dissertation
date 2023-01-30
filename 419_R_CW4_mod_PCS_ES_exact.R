@@ -6,7 +6,6 @@
 ######## if X_(k-t+1)-X0>=c, select all populations for which  Xi>=X_(k-t+1)-d
 ######## else, reject all populations for which X_i<X0+c
 ##############################################################################################
-## Original version: 31OCT2022
 
 ###################################################
 ####     P(CS1) at p*: p=...=pk=p0+delta2      ####
